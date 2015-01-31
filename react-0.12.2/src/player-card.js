@@ -27,15 +27,17 @@ var PlayerCard = React.createClass({
   }
 });
 
-$.getJSON(
-  'http://api.scout.com//topic/players/search?from=0&size=27&team="USC"&sortBy=CommitDate&category=Football+Recruiting&classYear=2015&league=HS',
-  function(players) {
-    var playerCards = players.searchResults.results.map(function(p) {
-      return <PlayerCard player={p}/>;
-    });
+if (document.location.href.indexOf('players') > -1) {
+  $.getJSON(
+    'http://api.scout.com//topic/players/search?from=0&size=27&team="USC"&sortBy=CommitDate&category=Football+Recruiting&classYear=2015&league=HS',
+    function(players) {
+      var playerCards = players.searchResults.results.map(function(p) {
+        return <PlayerCard player={p}/>;
+      });
 
-    React.render(
-      <div>{playerCards}</div>,
-      document.getElementById('example')
-    );
-  });
+      React.render(
+        <div>{playerCards}</div>,
+        document.getElementById('example')
+      );
+    });
+}

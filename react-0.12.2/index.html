@@ -5,6 +5,7 @@
     <script src="build/react.js"></script>
     <script src="build/JSXTransformer.js"></script>
     <script type="text/jsx" src="src/player-card.js"></script>
+    <script type="text/jsx" src="src/team-cards.js"></script>
     <style>
       .player-card {
         display: inline-flex;
@@ -81,6 +82,59 @@
         color: #888;
         letter-spacing: 2px;
         font-size: 20px;
+      }
+
+
+      .team-card {
+        display: inline-flex;
+        position: relative;
+        flex-flow: wrap;
+        border-radius: 5px;
+        border: 2px solid gray;
+        font-family: Bebas Neue;
+        width: 330px;
+        height: 510px;
+        margin: 20px;
+        zoom: 0.5;
+      }
+
+      .team-card p {
+        font-size: 30px;
+        margin: 10px;
+        font-family: Sanchez;
+      }
+
+      .small-text p {
+        font-size: 26px;
+      }
+      
+      .team-card h1 {
+        padding: 10px;
+        margin-top: 10px;
+        width: 330px;
+        font-size: 44px;
+        text-align: center;
+      }
+
+      .cost {
+        position: absolute;
+        bottom: -1px;
+        right: -1px;
+        border: 3px solid black;
+        padding: 5px;
+        text-align: center;
+        width: 55px;
+        height: 55px;
+        font-size: 60px;
+        font-weight: bold;
+      }
+
+      .codes {
+        position: absolute;
+        bottom: -1px;
+        left: 10px;
+        font-size: 45px;
+        font-weight: bold;
       }
 
     </style>

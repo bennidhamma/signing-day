@@ -1,3 +1,5 @@
+var React = React || {};
+
 var teamCards = [
   {
     name: 'Stadium',
@@ -90,6 +92,7 @@ var teamCards = [
     cost: 0,
     scandal: false,
     staysInPlay: false,
+    className:'small-text',
     description: 'Play immediately when drawn. If you have any scandal cards in play, add up the cost of your scandal cards. Move your cubes back by that many. If you have no scandal cards, you may choose another player to apply the effect to.'
   },
   {
@@ -106,6 +109,7 @@ var teamCards = [
     cost: 0,
     scandal: false,
     staysInPlay: false,
+    className: 'small-text',
     description: 'Play immediately when drawn. Advance the leading cube on each Recruit by one space. Committed players Sign LOIs. Reduce the Countdown to Signing Day die by 1.'
   },
   {
@@ -124,7 +128,41 @@ var positions = [ 'QB', 'WR', 'OT', 'DT', 'TE', 'S', 'CB'].map(function(pos) {
     quantity: 3,
     staysInPlay: true,
     description: 'At end of game, add # +1 Rating tokens * # +1 Rating tokens for one ' + pos
-  } 
+  };
 });
 
 teamCards = teamCards.concat(positions);
+
+if (document.location.href.indexOf('teams') > -1) {
+  var TeamCard = React.createClass({
+    render: function() {
+      var t = this.props.teamCard;
+      var codes = [];
+      if (t.scandal) {
+        codes.push('S!');
+      }
+      if (t.staysInPlay) {
+        codes.push('P');
+      }
+      return <div className={'team-card ' + t.className}>
+        {t.cost ? 
+        <div className="cost">{t.cost}</div>
+        : null }
+        {codes.length ? 
+        <div className="codes">{codes.join(' ')}</div>
+        : null}
+        <h1>{t.name}</h1>
+        <p>{t.description}</p>
+      </div>;
+    }
+  });
+
+  var cards = [];
+  teamCards.forEach(function(card) {
+    for(var i = 0; i < card.quantity; i++) {
+      cards.push(<TeamCard teamCard={card}/>);
+    }
+  });
+
+  React.render(<div>{cards}</div>, document.getElementById('example'));
+}
