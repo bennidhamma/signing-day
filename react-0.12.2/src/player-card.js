@@ -11,7 +11,7 @@ var PlayerCard = React.createClass({
     for (var i = 1; i <= 5; i++) {
       stars.push(<div className={i <= y.rating ? 'filled star' : 'open star'}>★</div>);
     }
-    var interests = ['Signed', 'Verbal', 'Soft Verbal', 'High', 'Medium', 'Low', 'None'];
+    var interests = ['Soft Verbal', 'High', 'Medium', 'Low'];
     var interestDivs = interests.map(function(i) {
       return <div className={'interest ' + i.toLowerCase().replace(' ', '-')}>{i}</div>;
     });
@@ -22,7 +22,12 @@ var PlayerCard = React.createClass({
         <div className="stars">{stars}</div>
         <h1>{p.name}</h1>
       </div>
-      <div className="interests">{interestDivs}</div>
+      <div className="interests">
+        <div className="interest committed">
+          <div className="verbal">Verbal</div><div className="signed">Signed</div>
+        </div>
+        {interestDivs}
+      </div>
     </div>;
   }
 });
