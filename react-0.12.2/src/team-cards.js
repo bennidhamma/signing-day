@@ -16,7 +16,7 @@ var teamCards = [
     description: 'Draw 1 extra card when drawing team cards'
   },
   {
-    name: 'Zelous Boost Club',
+    name: 'Zealous Booster Club',
     quantity: 4,
     cost: 2,
     staysInPlay: true,
@@ -47,10 +47,10 @@ var teamCards = [
     description: '+1 Card when using the Play Team Card action.'
   },
   {
-    name: 'Friendly Gift',
+    name: 'Endowment',
     quantity: 4,
     cost: 5,
-    scandal: true,
+    scandal: false,
     staysInPlay: true,
     description: '+1 Card when using the Play Team Card action.'
   },
