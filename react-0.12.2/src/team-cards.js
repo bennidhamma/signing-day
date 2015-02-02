@@ -152,6 +152,15 @@ var teamCards = [
     staysInPlay: false,
     description: 'Add one +1 or -1 Rating token to 1 or 2 players'
   },
+  {
+    name: 'Needed Position',
+    quantity: 5,
+    cost: 0,
+    scandal: false,
+    staysInPlay: false,
+    description: 'Draw a Needed Position from the Positions deck.'
+
+  }
 ];
 
 var positions = [ 'QB', 'WR', 'OT', 'DT', 'TE', 'S', 'CB'].map(function(pos) {
